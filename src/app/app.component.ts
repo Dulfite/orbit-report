@@ -15,7 +15,8 @@ export class AppComponent {
 	constructor() {
 		this.sourceList = [];
 		this.displayList = [];
-		let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
+		let satellitesUrl = "https://handlers.education.launchcode.org/static/satellites.json";
+
 
 		window.fetch(satellitesUrl).then(function (response) {
 			response.json().then(function (data) {
@@ -28,6 +29,7 @@ export class AppComponent {
 					// add the new Satellite object to sourceList 
 					this.sourceList.push(satellite);
 				 }
+				 
 
 				 // make a copy of the sourceList to be shown to the user
 				 this.displayList = this.sourceList.slice(0);
@@ -42,7 +44,13 @@ export class AppComponent {
 		searchTerm = searchTerm.toLowerCase();
 		for(let i=0; i < this.sourceList.length; i++) {
 			let name = this.sourceList[i].name.toLowerCase();
+			let type = this.sourceList[i].type.toLowerCase();
+			let orbitType = this.sourceList[i].orbitType.toLowerCase();
 			if (name.indexOf(searchTerm) >= 0) {
+				matchingSatellites.push(this.sourceList[i]);
+			} else if (type.indexOf(searchTerm) >= 0) {
+				matchingSatellites.push(this.sourceList[i]);
+			} else if (orbitType.indexOf(searchTerm) >= 0) {
 				matchingSatellites.push(this.sourceList[i]);
 			}
 		}
