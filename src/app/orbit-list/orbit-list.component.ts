@@ -28,10 +28,14 @@ export class OrbitListComponent implements OnInit {
 	}
 
 }
-function sort (column: any, string: any) {
-	throw new Error('Function not implemented.');
-}
 
-function column(column: any, string: any) {
-	throw new Error('Function not implemented.');
-}
+	
+		
+		
+			
+				
+			
+				
+			
+	
+	
